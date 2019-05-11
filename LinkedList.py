@@ -12,9 +12,19 @@ class LinkedList:
         new_node = Node(data, self.head)
         self.head = new_node
         self.size += 1
+    
+    def delete_first(self):
+        if (self.size < 1):
+            raise ArgumentException("LinkedList has no size")
+        data = self.head.data
+        self.head = self.head.next
+        return data
 
     def add_last(self, data):
-        self.insert(data, self.size-1)
+        if (self.size==1):
+            self.add_first(data)
+        else:
+            self.insert(data, self.size-1)
 
     def insert(self, data, index):
         self.__check_size(index)
@@ -30,8 +40,10 @@ class LinkedList:
         tmp = self.head
         for i in range(index-1):
             tmp = tmp.next
+        data = tmp.next.data
         tmp.next = tmp.next.next
         self.size -= 1
+        return data
 
     def get(self, index):
         tmp = self.head
@@ -69,7 +81,7 @@ class LinkedList:
 if __name__=="__main__":
     test = LinkedList()
     for i in range(4):
-        test.add_first(i)
+        test.add_last(i)
     test.print()
     test.insert(5,1)
     test.print()
