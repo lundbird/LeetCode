@@ -13,7 +13,6 @@ class BST:
     def contains(self, data, node=defaultNode):
         if (node == defaultNode):
             node = self.root
-
         if (node == None):
             return False
         if (node.data == data):
@@ -22,6 +21,22 @@ class BST:
             return self.contains(data, node.left)
         else:
             return self.contains(data, node.right)
+
+    def DFS(self, data, node=defaultNode):
+        #check both left tree and right tree recursively then return true if either is true
+        if (node == defaultNode):
+            node = self.root
+
+        if (node == None):
+            return
+        leftval =  self.DFS(data, node.left)
+        if (data == node.data):
+            return True
+        rightval = self.DFS(data, node.right)
+        return leftval or rightval #need to do return the OR of this.
+
+    def BFS(self, data, node=defaultNode):
+        pass #TODO need to use a queue
 
     def insert(self, data, node=defaultNode):
         if (node == defaultNode):
@@ -77,3 +92,6 @@ if __name__ == "__main__":
     print()
     test.inorder(test.root)
     print()
+    print(test.DFS(1))
+    print(test.DFS(-1))
+    print(test.DFS(7))
