@@ -35,8 +35,18 @@ class BST:
         rightval = self.DFS(data, node.right)
         return leftval or rightval #need to do return the OR of this.
 
-    def BFS(self, data, node=defaultNode):
-        pass #TODO need to use a queue
+    def BFS(self, data):
+        stack = [self.root]
+        while (len(stack) > 0):
+            node = stack.pop()
+            if (node is None):
+                continue
+            if (node.data == data):
+                return True
+            stack.append(node.right)
+            stack.append(node.left)
+        return False
+
 
     def insert(self, data, node=defaultNode):
         if (node == defaultNode):
@@ -95,3 +105,6 @@ if __name__ == "__main__":
     print(test.DFS(1))
     print(test.DFS(-1))
     print(test.DFS(7))
+    print(test.BFS(1))
+    print(test.BFS(-1))
+    print(test.BFS(7))
