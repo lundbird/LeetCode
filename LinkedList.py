@@ -16,7 +16,7 @@ class LinkedList:
 
     def delete_first(self):
         if (self.size < 1):
-            raise ArgumentException("LinkedList has no size")
+            raise ValueError("LinkedList has no size")
         data = self.head.data
         self.head = self.head.next
         self.size -= 1

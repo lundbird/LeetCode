@@ -11,7 +11,6 @@ class HashTable:
 
     def insert(self, data):
         bucket = self.hash_code(data)
-        # print(bucket, self.array[bucket])
         self.array[bucket].add_first(data)
 
     def lookup(self, data):
