@@ -24,7 +24,7 @@ class Solution:
                 counts.remove(val)
         return counts.pop()
     
-    def singleNumber3(self, nums: List[int]) -> int:
+    def singleNumber4(self, nums: List[int]) -> int:
         #same as above but use sets which is implemented as hashtable. O(n)
         s = set()
         for val in nums:
@@ -34,7 +34,7 @@ class Solution:
                 s.remove(val)
         return s.pop()
 
-    def singleNumber4(self, nums: List[int]) -> int:
+    def singleNumber5(self, nums: List[int]) -> int:
         #crazy fast. a xor a = 0 so xor everything is just the one left over
         a = 0
         for i in nums:
