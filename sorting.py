@@ -1,6 +1,3 @@
-import sys
-
-
 def insertion_sort(A):
     B = []
     for i in range(len(A)):
@@ -33,6 +30,7 @@ def bucket_sort(A):
             B[1].append(A[i])
         elif (A[i] >= max_val // 3 * 0):
             B[0].append(A[i])
+            
     C = []
     for i in range(len(B)):
         B[i] = bubble_sort(B[i])
@@ -77,6 +75,7 @@ def quick_sort(A):
 
 
 if __name__ == "__main__":
+    funcs = [insertion_sort, bubble_sort, bucket_sort, merge_sort, quick_sort]
     A = [[None]*7]*6
     A_sorted = [1, 2, 3, 4, 5, 6, 7]
     A[0] = [1, 2, 3, 4, 5, 6, 7]
@@ -85,9 +84,6 @@ if __name__ == "__main__":
     A[3] = [7, 6, 5, 4, 1, 2, 3]
     A[4] = [1, 3, 5, 7, 2, 4, 6]
     A[5] = [7, 5, 6, 4, 1, 3, 2]
-    for i in range(6):
-        assert A_sorted == insertion_sort(A[i]), insertion_sort(A[i])
-        assert A_sorted == bubble_sort(A[i]), bubble_sort(A[i])
-        assert A_sorted == bucket_sort(A[i]), bucket_sort(A[i])
-        assert A_sorted == merge_sort(A[i]), merge_sort(A[i])
-        assert A_sorted == quick_sort(A[i]), quick_sort(A[i])
+    for i in range(len(A)):
+        for func in funcs:
+            assert A_sorted == func(A[i]), func(A[i])
