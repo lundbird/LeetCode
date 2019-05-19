@@ -43,6 +43,7 @@ def bucket_sort(A):
 def merge_sort(A):
     if len(A) <= 1:
         return A
+
     left = merge_sort(A[:len(A)//2])
     right = merge_sort(A[len(A)//2:])
 
@@ -58,7 +59,21 @@ def merge_sort(A):
 
 
 def quick_sort(A):
-    pass
+    if (len(A) <= 1):
+        return
+
+    left, right = [], []
+    pivot = (max(A) + min(A)) / 2
+    for i in range(len(A)):
+        if A[i] <= pivot:
+            left.append(A[i])
+        else:
+            right.append(A[i])
+
+    quick_sort(left)
+    quick_sort(right)
+    left.extend(right)
+    return left
 
 
 if __name__ == "__main__":
@@ -75,3 +90,4 @@ if __name__ == "__main__":
         assert A_sorted == bubble_sort(A[i]), bubble_sort(A[i])
         assert A_sorted == bucket_sort(A[i]), bucket_sort(A[i])
         assert A_sorted == merge_sort(A[i]), merge_sort(A[i])
+        assert A_sorted == quick_sort(A[i]), quick_sort(A[i])
