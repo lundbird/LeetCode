@@ -30,7 +30,7 @@ def bucket_sort(A):
             B[1].append(A[i])
         elif (A[i] >= max_val // 3 * 0):
             B[0].append(A[i])
-            
+
     C = []
     for i in range(len(B)):
         B[i] = bubble_sort(B[i])
@@ -84,6 +84,7 @@ if __name__ == "__main__":
     A[3] = [7, 6, 5, 4, 1, 2, 3]
     A[4] = [1, 3, 5, 7, 2, 4, 6]
     A[5] = [7, 5, 6, 4, 1, 3, 2]
+    print(A)
     for i in range(len(A)):
         for func in funcs:
             assert A_sorted == func(A[i]), func(A[i])
