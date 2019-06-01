@@ -64,7 +64,7 @@ class BST:
     def inorder(self, node):
         if node is None:
             return
-        self.inorder(node.left)
+        self.inorder(node.left) #see how we do the operation THEN print.
         print(node.data, end=' ')
         self.inorder(node.right)
 
