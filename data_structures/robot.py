@@ -1,4 +1,4 @@
-f = open("janestreet.txt", "r")
+f = open("small.txt", "r")
 curpos = [0, 0]
 cur_dir = "N"
 obstacles = set()  # store obstacles as set of coordinate tuples
