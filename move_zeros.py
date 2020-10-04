@@ -7,7 +7,7 @@ def moveZeroes2(nums):
     zero_count = nums.count(0)
     while i < (len(nums)-zero_count):
         if nums[i] == 0:
-            nums.append(nums[i])
+            nums.append(0)
             nums.pop(i)
         else:
             i += 1
@@ -28,6 +28,15 @@ def moveZeroes4(nums):
             nums.pop(i)
             i -=1
 
+def moveZeroes(self, nums: List[int]) -> None:
+    # Most efficient as is only requires one pass
+    i = 0
+    for _ in range(len(nums)):
+        if nums[i] == 0:
+            nums.pop(i)
+            nums.append(0)
+        else:
+            i += 1
 
 if __name__ == "__main__":
     nums = [0,1,0,3,12]
