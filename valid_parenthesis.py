@@ -7,4 +7,4 @@ def isValid(s):
         else: 
             if not stack or parens[stack.pop()] != char:
                 return False
-    return False if stack else True
+    return not stack
