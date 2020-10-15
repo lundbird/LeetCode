@@ -12,6 +12,22 @@ def binary_search(A,val) -> int:
         else:
             l = m + 1 #increase by one or else we can get infinite loop where m doesn't move
 
+
+def binarySearch(arr, num):
+    begin = 0
+    end = arr.length - 1
+    while (begin <= end):
+        mid = begin + (end - begin)//2
+        if arr[mid] < num:
+            begin = mid + 1
+        elif arr[mid] == num:
+            return mid
+        else:
+            end = mid - 1
+
+    return -1
+    
+
 def binary_search_lowest_duplicate(A,val) -> int:
     l,r = 0, len(A)
     while l<r:
